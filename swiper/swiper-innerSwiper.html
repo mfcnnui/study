@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../stylesheets/swiper.3.1.2.min.css"/>
+    <script src="../javascripts/jquery-1.7.min.js"></script>
+    <script src="../javascripts/swiper.min.js"></script>
+    <title></title>
+    <style>
+        html,body{
+            height: 100%;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+        }
+        .swiper-container{
+            height: 100%;
+        }
+        .filter{
+            /*-webkit-filter:blur(5px);*/
+            -webkit-filter:drop-shadow(10px 10px 10px #000);
+        }
+        .pag .swiper-pagination-bullet{
+            width: 50px;
+            height: 20px;
+            border-radius: 0;
+        }
+        .inner-box{
+            height: 100%;
+            overflow: auto;
+            border: 5px solid #d7d7d7;
+            box-sizing: border-box;
+        }
+        .inner-box div{
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="swiper-container container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-color: #da4a94">
+            <div class="inner-box">
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+            </div>
+        </div>
+        <div class="swiper-slide" style="background-color: #5bda56">swiper-text</div>
+        <div class="swiper-slide" style="background-color: #b7ff2b">
+            <div class="swiper-container container2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background-color: #bc07b7">上下滑动</div>
+                    <div class="swiper-slide" style="background-color: #e4fffa">上下滑动</div>
+                    <div class="swiper-slide" style="background-color: #fc91ff">上下滑动</div>
+                    <div class="swiper-slide" style="background-color: #ff646c">
+                       <input type="password"/>
+                    </div>
+                    <div class="swiper-slide" style="background-color: #b7ff2b">上下滑动</div>
+                </div>
+                <div class="swiper-scrollbar swiper-scrollbar-v"></div>
+            </div>
+        </div>
+        <div class="swiper-slide" style="background-color: #bc07b7">swiper-text</div>
+        <div class="swiper-slide" style="background-color: #578b85">
+            <div class="filter" style="background-color: #b7ff2b;width: 100px;height: 100px;"></div>
+        </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination pag"></div>
+</div>
+<script>
+    var MySwiper = new Swiper('.container',{
+        prevButton:'.swiper-button-prev',
+        nextButton:'.swiper-button-next',
+        loop:true,
+//        autoplay:2000,
+//        speed:1000,
+//        centeredSlide:true,
+        autoplayDisableOnInteraction:false,
+        pagination:'.swiper-pagination',
+        paginationClickable :true,
+        spaceBetween : 20,
+        onSlideChangeEnd: function (swiper) {
+//            alert(swiper.activeIndex)
+        }
+    });
+//    var Myswiper2 = new Swiper('.container2',{
+//        direction:'vertical'
+//        autoplay:3000,
+//        autoplayDisableOnInteraction:false,
+//        freeMode:true,
+//        scrollbar:'.swiper-scrollbar-v'
+//    });
+</script>
+</body>
+</html>

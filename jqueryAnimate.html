@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="javascripts/jquery-1.7.min.js"></script>
+    <script type="text/javascript" src="javascripts/jquery.cxscroll.js"></script>
+    <style>
+         /*横向滚动基本样式 */
+        .cxscroll{}
+        .cxscroll .box{overflow:hidden;width:400px;}
+        .cxscroll .list{overflow:hidden;width:9999px;}
+        .cxscroll .list li{float:left;width:200px;height:100px;}
+        .cxscroll .prev{}
+        .cxscroll .next{}
+
+        /* 纵向滚动基本样式 */
+        /*.cxscroll{}*/
+        /*.cxscroll .box{overflow:hidden;height:300px;}*/
+        /*.cxscroll .list{}*/
+        /*.cxscroll .list li{height:100px;}*/
+        /*.cxscroll .prev{}*/
+        /*.cxscroll .next{}*/
+    </style>
+</head>
+<body>
+<div id="element_id" class="cxscroll">
+    <div class="box">
+        <ul class="list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+    <!-- 控制按钮内部会自动创建，可省略 -->
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+<script>
+        $(function () {
+            $('#element_id').cxScroll();
+        })
+
+    </script>
+</body>
+</html>

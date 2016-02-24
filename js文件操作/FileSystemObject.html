@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> New Document </title>
+
+</head>
+<script type="text/javascript">
+    function readFolder(){
+        var fso, f1;
+        fso = new ActiveXObject("Scripting.FileSystemObject");
+        f1 = fso.CreateTextFile("d:\\testfile.txt", true);
+    }
+</script>
+<body>
+<input type="button" value="遍历文件夹" onclick="readFolder()">
+</body>
+</html>

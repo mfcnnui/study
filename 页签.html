@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css"/>
+    <script src="javascripts/jquery-1.7.min.js"></script>
+    <!--<script src="javascripts/zui.min.js"></script>-->
+    <script src="javascripts/Chart.min.js"></script>
+
+    <title></title>
+    <style>
+        nav > a {
+            position: relative;
+            display: inline-block;
+            padding: .5em;
+        }
+        nav > a::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            background: #ccc;
+            background-image: linear-gradient(
+                    hsla(0,0%,100%,.6),
+                    hsla(0,0%,100%,0));
+            border: 1px solid rgba(0,0,0,.4);
+            border-bottom: none;
+            border-radius: .5em .5em 0 0;
+            box-shadow: 0 .15em white inset;
+            transform: perspective(.3em) rotateX(5deg);
+            transform-origin: bottom;
+        }
+        pre{
+            width: 700px;
+        }
+        canvas{
+            border: 1px solid darkgrey;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+
+    <textarea id="text-box" cols="20" rows="10"></textarea><br>
+
+    <pre id="pre"></pre>
+
+
+    <script>
+
+        var  $box = $("#text-box");
+
+        $box.bind('input propertychange', function() {
+            $('#pre').text($(this).val());
+        });
+
+
+        var  a = 1;
+        function fun (){
+            if(!a){
+                var a = 2;
+            }
+            alert(a);
+        }
+        fun();
+    </script>
+</body>
+</html>

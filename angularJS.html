@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>angularJS</title>
+    <link rel="stylesheet" href="stylesheets/reset.css"/>
+    <script type="text/javascript" src="javascripts/jquery-1.7.min.js"></script>
+    <script type="text/javascript" src="javascripts/angular1.2.3.js"></script>
+    <style>
+        .model{
+            width: 70%;
+            height: 100%;
+            margin: auto;
+            background: darkgray;
+        }
+        .msg{
+            width: 100%;
+            margin-top: 20px;
+            background: darkgoldenrod;
+        }
+    </style>
+</head>
+<body  ng-controller="msgCon">
+    <div class="model">
+            <div ng-repeat="msage in msg" class="msg">
+               <span>姓名:</span> <span ng-bind="msage.name"></span>
+               <span>年龄:</span><span ng-bind="msage.age"></span>
+               <span>地址:</span><span ng-bind="msage.address"></span>
+                <p ng-bind="hello">asdasda</p>
+            </div>
+    </div>
+
+    <script>
+        function msgCon($scope){
+            $scope.hello="hello world!"
+            $scope.msg=[
+                {"name":"aa","age":"12","address":"1111"},
+                {"name":"bb","age":"13","address":"2222"},
+                {"name":"cc","age":"14","address":"3333"},
+                {"name":"dd","age":"15","address":"4444"},
+                {"name":"ff","age":"16","address":"5555"}
+            ]
+        }
+    </script>
+</body>
+</html>

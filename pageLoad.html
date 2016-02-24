@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="stylesheets/swiper.3.1.2.min.css"/>
+    <script src="javascripts/jquery-1.7.min.js"></script>
+    <script src="javascripts/swiper.min.js"></script>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .swiper-container{
+            height: 100%;
+        }
+        .swiper-container .swiper-slide{
+            height: 100px;
+            text-align: center;
+            color: #ffffff;
+            font-size: 20px;
+            line-height: 50px;
+        }
+        .upSlideLoadBox{
+            height: 50px;
+            width: 100%;
+            background: #dddddd;
+            position: absolute;
+            top: -100%;
+            left: 0;
+            text-align: center;
+            font-size: 25px;
+            line-height: 50px;
+            color: #69d2e7;
+            opacity: 0;
+            z-index: 2;
+            -webkit-transition: 300ms;
+            -moz-transition: 300ms;
+            -ms-transition: 300ms;
+            -o-transition: 300ms;
+            transition: 300ms;
+        }
+        .upSlideLoadBox.visible{
+            top: 0;
+            opacity: 1;
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+<div class="upSlideLoadBox">loading</div>
+<div class="swiper-container" >
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background: #46b8da;">测试数据</div>
+        <div class="swiper-slide" style="background: #E9DC51;">测试数据</div>
+        <div class="swiper-slide" style="background: #d43f3a;">测试数据</div>
+        <div class="swiper-slide" style="background: #0d3d88;">测试数据</div>
+        <div class="swiper-slide" style="background: chartreuse;">测试数据</div>
+        <div class="swiper-slide" style="background: #0d3d88;">测试数据</div>
+        <div class="swiper-slide" style="background: #E9DC51;">测试数据</div>
+        <div class="swiper-slide" style="background: #46b8da;">测试数据</div>
+        <div class="swiper-slide" style="background: #E9DC51;">测试数据</div>
+        <div class="swiper-slide" style="background: #d43f3a;">测试数据</div>
+        <div class="swiper-slide" style="background: #46b8da;">测试数据</div>
+        <div class="swiper-slide" style="background: #E9DC51;">测试数据</div>
+        <div class="swiper-slide" style="background: #d43f3a;">测试数据</div>
+    </div>
+    <div class="swiper-scrollbar"></div>
+</div>
+<script>
+
+    var mySwiper = new Swiper('.swiper-container',{
+        direction:'vertical',
+        scrollbar:'.swiper-scrollbar',
+        freeMode:'true',
+
+        slidesPerView:'auto',
+        onTouchEnd:function(swiper){
+//            swiper.setWrapperTranslate(100);
+            swiper.params.slidesOffsetBefore = 100;
+            if(swiper.translate > 50){
+
+
+            }
+
+
+//            var $loadBox = $('.upSlideLoadBox');
+//            if(swiper.translate > 80){
+//                console.log(swiper.translate);
+//                swiper.setWrapperTranslate(100);
+//                $loadBox.addClass('visible');
+//                setTimeout(function () {
+//                    swiper.setWrapperTranslate(0);
+//                    swiper.params.onlyExternal=false;
+//                    $loadBox.removeClass('visible');
+//                    swiper.update();
+//                },1000)
+//            }
+        }
+    });
+
+</script>
+</body>
+</html>

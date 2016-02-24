@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../javascripts/jquery-1.7.min.js"></script>
+    <style>
+        .outer{
+            height: 800px;
+            width: 800px;
+            position: relative;
+            border: 1px solid #c9302c;
+            margin: auto;
+        }
+        .move{
+            height: 100px;
+            width: 100px;
+            background: darkorange;
+            position: absolute;
+            word-wrap: break-word;
+            box-sizing: border-box;
+            /*-webkit-user-select:none;*/
+        }
+        .move img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="outer">
+    <div class="move">
+            <span>
+                <img src="../canvas/img/qq.png" alt="" ondragstart="return false"/>
+            </span>
+    </div>
+</div>
+<script>
+    $(function () {
+        var $move = $(".move");
+        var isMove = false;
+        $move.mousedown(function (e) {
+            isMove = true;//
+            var $this = $(this);
+            var startX = e.clientX - $this.position().left;
+            //当前属标x轴偏移量 - $move 相对于 父元素(因为move块儿外层定位是position :relative,所以这里是用.position()方法)
+            //position()详解:参照离自身最近的有position css 标记的父元素的左上角的坐标为准,如果没有找到,则以最外层的浏览器
+            //可视区域左上角为准
+            //offset()详解:直接参照可视区域左上角坐标为准
+            var startY = e.clientY - $this.position().top;
+            console.log("position().left------" +$this.position().left);
+            console.log("position().top------"+$this.position().top);
+            $(document).mousemove(function (e) {
+                var moveX = e.clientX - startX;
+                var moveY = e.clientY - startY;
+                if(isMove){
+                    if(moveX>=0&&moveX<=700){
+                        $move.css("left",moveX+"px");
+                    }else if(moveX<0){
+                        $move.css("left",0);
+                    }
+                    if(moveY>=0&&moveY<=700){
+                        $move.css("top",moveY+"px");
+                    }else if(moveY<0){
+                        $move.css("top",0);
+                    }
+                    if(moveX>700){
+                        $move.css("left","700px");
+                    }
+                    if(moveY>700){
+                        $move.css("top","700px");
+                    }
+                }
+            });
+            $(document).mouseup(function () {
+                isMove = false;
+            });
+        });
+    });
+
+</script>
+</body>
+</html>

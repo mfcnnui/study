@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../stylesheets/swiper.3.1.2.min.css"/>
+    <!--<link rel="stylesheet" href="../stylesheets/animate.min.css"/>-->
+    <script src="../javascripts/swiper.min.js"></script>
+    <script src="../javascripts/swiper.animate-twice.min.js"></script>
+    <title></title>
+    <style>
+        html,body{
+            height: 100%;
+            margin: 0 auto;
+        }
+        .swiper-container{
+            /*height: 300px;*/
+        }
+        .swiper-slide{
+            width: 150px;
+            height: 200px;
+            /*font-size: 100px;*/
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-color: #a278ff">
+            <div class="ani" data-slide-in="at 50 from bounceInDown use swing during 500" data-slide-out="at 100 to fadeOutRight use swing during 500 force">内容1</div>
+            <div class="ani" data-slide-in="at 300 from bounceInDown use swing during 500" data-slide-out="at 100 to fadeOutRight use swing during 500 force">内容2</div>
+            <div class="ani" data-slide-in="at 500 from bounceInDown use swing during 500" data-slide-out="at 100 to fadeOutRight use swing during 500 force">内容3</div>
+        </div>
+        <div class="swiper-slide" style="background-color: #98ffa1">
+            <div class="ani" data-slide-in="at 500 from bounceInDown use swing during 500" data-slide-out="at 80 to fadeOutRight use swing during 1500 force">内容1</div>
+        </div>
+        <div class="swiper-slide" style="background-color: #fff326">
+            <div class="ani" data-slide-in="at 500 from bounceInDown use swing during 500" data-slide-out="at 60 to fadeOutRight use swing during 1000 force">内容1</div>
+        </div>
+        <div class="swiper-slide" style="background-color: #ff20cb">
+            <div class="ani" data-slide-in="at 500 from bounceInDown use swing during 500" data-slide-out="at 40 to fadeOutRight use swing during 500 force">内容1</div>
+        </div>
+        <div class="swiper-slide" style="background-color: #7de764">
+            <div class="ani" data-slide-in="at 500 from bounceInDown use swing during 500" data-slide-out="at 20 to fadeOutRight use swing during 100 force">内容1</div>
+        </div>
+        <div class="swiper-slide" style="background-color: #7de764">
+            <div class="ani" data-slide-in="at 500 from bounceInDown use swing during 500" data-slide-out="at 20 to fadeOutRight use swing during 100 force">内容1</div>
+        </div>
+        <div class="swiper-slide" style="background-color: #7de764">
+            <div class="ani" data-slide-in="at 500 from bounceInDown use swing during 500" data-slide-out="at 20 to fadeOutRight use swing during 100 force">内容1</div>
+        </div>
+        <div class="swiper-slide" style="background-color: #7de764">
+            <div class="ani" data-slide-in="at 500 from bounceInDown use swing during 500" data-slide-out="at 20 to fadeOutRight use swing during 100 force">内容1</div>
+        </div>
+    </div>
+</div>
+<script>
+    var mySwiper = new Swiper('.swiper-container',{
+//        direction:'vertical',
+//        autoplay:3000,
+        onInit: function (swiper) {
+            swiperAnimateCache(swiper);
+            swiperAnimate(swiper);
+        },
+        onSlideChangeEnd: function (swiper) {
+            swiperAnimate(swiper);
+        },
+        slidesPerView:'auto',
+        effect : 'coverflow',
+        centeredSlides:true,
+        coverflow: {
+            rotate: 0,
+            stretch: 31,//拉伸度
+            depth: 150 ,//视距
+            modifier: 2,
+            slideShadows : false
+        },
+        onInit: function (swiper) {
+            var centerSlider = parseInt(swiper.slides.length/2);
+            swiper.slideTo(centerSlider,0,false);//初始化时居中
+        },
+        onTap: function (swiper) {
+            var curIndex = swiper.clickedIndex;
+            if(curIndex != undefined)
+            swiper.slideTo(curIndex);
+        }
+    });
+</script>
+</body>
+</html>

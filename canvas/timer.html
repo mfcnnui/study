@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>林秋月的第一个网页</title>
+    <!--<link rel="stylesheet" href="lin.css"/>-->
+    <style>
+        #can{
+            border: 1px solid deeppink;
+            display: block;
+            margin: 0 auto;
+        }
+        /*.lin{*/
+            /*color:red;*/
+            /*font-size: 100px;*/
+            /*width: 200px;*/
+            /*height: 200px;*/
+            /*border: 1px solid deeppink;*/
+            /*background: darkgreen;*/
+            /*position: relative;*/
+        /*}*/
+        /*img{*/
+            /*height: 500px;*/
+            /*width:  500px;*/
+            /*vertical-align: middle;*/
+            /*transition: all 1s;*/
+            /*position: absolute;*/
+        /*}*/
+        /*img:hover{*/
+            /*width: 100px;*/
+            /*height: 100px;*/
+        /*}*/
+        /*span{*/
+            /*position: absolute;*/
+            /*top: 50px;*/
+            /*left: 50px;*/
+        /*}*/
+    </style>
+</head>
+<body>
+    <audio src="success.wav" controls="controls" autoplay="autoplay" loop="loop"></audio>
+    <canvas id="can" width="1024" height="768">当前浏览器不支持Canvas请更换更高级浏览器再试！</canvas>
+    <script>
+        var cas = document.getElementById('can');
+        var ctx = cas.getContext('2d');
+//        ctx.beginPath();
+//        ctx.strokeStyle = '#f00';
+//        ctx.fillStyle = 'rgba(2,100,3,.5)';
+//        ctx.moveTo(100,100);
+//        ctx.lineTo(700,700);
+//        ctx.lineTo(300,500);
+//        ctx.lineTo(100,100);
+//        ctx.lineWidth = 5;
+//        ctx.fill();
+//        ctx.stroke();
+//        ctx.closePath();
+
+        ctx.lineWidth = 3;
+        ctx.fillStyle = 'red';
+        for(var i = 0 ; i < 10 ; i ++){
+            ctx.beginPath();
+            ctx.arc(50+i*100,60,40,0,2*Math.PI*(i+1)/10);
+            ctx.fill();
+//            ctx.closePath();
+        }
+
+    </script>
+<!--<div>-->
+    <!--<img class="img1" src="../images/15.jpg" alt=""/>-->
+<!--</div>-->
+</body>
+</html>

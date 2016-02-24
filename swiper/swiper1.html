@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../stylesheets/swiper.3.1.2.min.css"/>
+    <script src="../javascripts/jquery-1.7.min.js"></script>
+    <script src="../javascripts/swiper.min.js"></script>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .swiper-container{
+            /*height: 100%;*/
+        }
+        .swiper-container .swiper-slide{
+            height: auto;
+            text-align: center;
+            line-height: 0px;
+            font-size: 0;
+            vertical-align: top;
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-color: #bc07b7;"><img src="../images/6.jpg" alt=""/></div>
+        <div class="swiper-slide" style="background-color: #428b89;"><img src="../images/1.jpg" alt=""/></div>
+        <div class="swiper-slide" style="background-color: #5bda56;"><img src="../images/3.jpg" alt=""/></div>
+        <div class="swiper-slide" style="background-color: #b7ff2b;"><img src="../canvas/img/qq.png" alt=""/></div>
+        <div class="swiper-slide" style="background-color: #ff7bf8;"><img src="../images/Efficient.png" alt=""/></div>
+    </div>
+</div>
+<script>
+    var mySwiper = new Swiper('.swiper-container',{
+//        autoplay:300,
+//        speed:1000,
+//        freeMode:true,
+//        onTap:function(swiper){
+//            swiper.params.speed = 200;
+//            swiper.params.autoplay = 1000;
+//            alert('你好你好呀！！！')
+//        },
+        onSlideChangeEnd: function (swiper) {
+//            alert(1);
+//            if(swiper.activeIndex == 2){
+//                swiper.lockSwipeToNext();
+//                console.log("向右滑不了了！！");
+//            }else{
+//                swiper.unlockSwipeToNext();
+//            }
+            console.log(swiper.activeIndex);
+            swiper.container[0].style.height = "200px"
+        }
+    })
+</script>
+</body>
+</html>

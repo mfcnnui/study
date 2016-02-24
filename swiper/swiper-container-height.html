@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../stylesheets/swiper.3.1.2.min.css"/>
+    <script src="../javascripts/jquery-1.7.min.js"></script>
+    <script src="../javascripts/swiper.min.js"></script>
+    <title></title>
+    <style>
+        .swiper-wrapper{
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-color: #bc07b7;">
+            <p>slide</p>
+            <p>slide</p>
+        </div>
+        <div class="swiper-slide" style="background-color: #428b89;">
+            <p>slide</p>
+            <p>slide</p>
+            <p>slide</p>
+            <p>slide</p>
+        </div>
+        <div class="swiper-slide" style="background-color: #5bda56;">
+            <p>slide</p>
+            <p>slide</p>
+            <p>slide</p>
+            <p>slide</p>
+            <p>slide</p>
+        </div>
+        <div class="swiper-slide" style="background-color: #b7ff2b;">
+            <p>slide</p>
+            <p>slide</p>
+            <p>slide</p>
+            <p>slide</p>
+            <p>slide</p>
+            <p>slide</p>
+            <p>slide</p>
+            <p>slide</p>
+        </div>
+        <div class="swiper-slide" style="background-color: #ff7bf8;">
+            <p>slide</p>
+            <p>slide</p>
+            <p>slide</p>
+            <p>slide</p>
+            <p>slide</p>
+        </div>
+    </div>
+</div>
+<div class="test">
+    <p>sadfsdfsadfasdfasdfasdfadfadfadf</p>
+    <p>sadfsdfsadfasdfasdfasdfadfadfadf</p>
+    <p>sadfsdfsadfasdfasdfasdfadfadfadf</p>
+    <p>sadfsdfsadfasdfasdfasdfadfadfadf</p>
+    <p>sadfsdfsadfasdfasdfasdfadfadfadf</p>
+    <p>sadfsdfsadfasdfasdfasdfadfadfadf</p>
+</div>
+<script>
+    var mySwiper = new Swiper('.swiper-container',{
+        onInit: function (swiper) {
+            swiper.container[0].style.height = swiper.slides[swiper.activeIndex].offsetHeight+'px';
+        },
+        onSlideChangeEnd:function(swiper){
+            swiper.container[0].style.height = swiper.slides[swiper.activeIndex].offsetHeight+'px';
+        }
+    })
+</script>
+</body>
+</html>

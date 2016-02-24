@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <script src="../javascripts/jquery-1.7.min.js"></script>
+    <title></title>
+    <style>
+        html,body{
+            height: 100%;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+        }
+        .container{
+            height: 100%;
+            background: steelblue;
+        }
+        .slide{
+            width: 200px;
+            height: 100px;
+            background: #E9DC51;
+            /*transform: translate(100px,100px);*/
+            /*-webkit-transition: all .3s;*/
+            /*-moz-transition: all .3s;*/
+            /*-ms-transition: all .3s;*/
+            /*-o-transition: all .3s;*/
+            /*transition: all .3s;*/
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="slide"></div>
+</div>
+<script>
+    var $body = $('body');
+    var $slide = $('.slide');
+    $slide.on("touchstart", function(e) {
+        e.preventDefault();
+        var $this = $(this);
+        startX = e.originalEvent.changedTouches[0].pageX - $this.offset().left;
+        startY = e.originalEvent.changedTouches[0].pageY - $this.offset().top;
+    });
+    $body.on("touchmove", function(e) {
+        e.preventDefault();
+        moveEndX = e.originalEvent.changedTouches[0].pageX;
+        moveEndY = e.originalEvent.changedTouches[0].pageY;
+        X = moveEndX - startX;
+        Y = moveEndY - startY;
+        $slide.css({
+            transition: 'all 0s',
+            transform:'translate('+X+'px,'+Y+'px)'
+        });
+
+
+//        if ( Math.abs(X) > Math.abs(Y) && X > 0 ) {
+//            console.log(X);
+//            $slide.css({
+//                transform:'translateX('+X+'px)',
+//                transform:'translateY('+Y+'px)'
+//            });
+//        }
+//        else if ( Math.abs(X) > Math.abs(Y) && X < 0 ) {
+//            console.log(X);
+//        }
+//        else if ( Math.abs(Y) > Math.abs(X) && Y > 0) {
+//            alert("上 2 下");
+//        }
+//        else if ( Math.abs(Y) > Math.abs(X) && Y < 0 ) {
+//            alert("下 2 上");
+//        }
+//        else{
+//            alert("just touch");
+//        }
+    });
+    $body.on('touchend', function () {
+        $slide.css({
+            transition: 'all .2s',
+            transform:'translate(0,0)'
+        });
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="javascripts/jquery-1.7.min.js"></script>
+    <style>
+        .div1{
+            width: 300px;
+            height: 200px;
+            background: darkgoldenrod;
+            position: absolute;
+            top: 50px;
+            left: 500px;
+        }
+        .div2{
+            width: 300px;
+            height: 500px;
+            background: darkcyan;
+            display: none;
+            position: absolute;
+            top: 250px;
+            left: 500px;
+        }
+        .div3{
+            width: 300px;
+            height: 200px;
+            background: red;
+            position: absolute;
+            top: 50px;
+            left: 800px;
+        }
+        .div4{
+            width: 300px;
+            height: 500px;
+            background: #ffff00;
+            position: absolute;
+            top: 250px;
+            left: 800px;
+            display: none;
+
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="div1"></div>
+        <div class="div2"></div>
+        <div class="div3"></div>
+        <div class="div4"></div>
+    </div>
+
+    <script>
+        $(".div1").hover(
+                function () {
+                    var $this = $(this);
+                    if(!$this.next().is(":animated")){
+                        $this.next().slideDown(100);
+                    }
+                },
+                function(){
+                   var $this = $(this);
+                        $this.next().slideUp(100);
+                }
+        );
+
+        $(".div3").hover(
+                function () {
+                    var $this = $(this);
+                    if(!$this.next().is(":animated")){
+                        $this.next().slideDown(100);
+                    }
+                },
+                function(){
+                    var $this = $(this);
+                    $this.next().slideUp(100);
+                }
+        );
+    </script>
+</body>
+</html>

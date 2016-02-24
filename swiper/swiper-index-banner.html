@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../stylesheets/swiper.3.1.2.min.css"/>
+    <script src="../javascripts/swiper.min.js"></script>
+    <title></title>
+    <style>
+        html,body{
+            margin: 0 auto;
+            padding: 0;
+            height: 100%;
+        }
+        .swiper-container{
+            height: 600px;
+        }
+        .swiper-container .swiper-slide{
+            /*height: 600px;*/
+            text-align: center;
+            line-height: 4;
+        }
+    </style>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-color: #b7ff2b">
+            <dl>
+                <dt data-swiper-parallax="-20%"><h1>标题名称</h1></dt>
+                <dt data-swiper-parallax="-30%"><p>如果我说我真的爱你，你会不会让我来呵护你真心</p></dt>
+                <dt data-swiper-parallax="-50%"><p>如果我说我真的爱你，你会不会让我来呵护你真心</p></dt>
+                <dt data-swiper-parallax="-70%"><p>如果我说我真的爱你，你会不会让我来呵护你真心</p></dt>
+                <dt data-swiper-parallax="-90%"><p>如果我说我真的爱你，你会不会让我来呵护你真心</p></dt>
+            </dl>
+        </div>
+        <div class="swiper-slide" style="background-color: #fc91ff">
+            <dl>
+                <dt data-swiper-parallax="-20%"><h1>标题名称</h1></dt>
+                <dt data-swiper-parallax="-30%"><p>如果我说我真的爱你，你会不会让我来呵护你真心</p></dt>
+                <dt data-swiper-parallax="-50%"><p>如果我说我真的爱你，你会不会让我来呵护你真心</p></dt>
+                <dt data-swiper-parallax="-70%"><p>如果我说我真的爱你，你会不会让我来呵护你真心</p></dt>
+                <dt data-swiper-parallax="-90%"><p>如果我说我真的爱你，你会不会让我来呵护你真心</p></dt>
+            </dl>
+        </div>
+        <div class="swiper-slide" style="background-color: #83ffcb">
+            <dl>
+                <dt data-swiper-parallax="-20%"><h1>标题名称</h1></dt>
+                <dt data-swiper-parallax="-30%"><p>如果我说我真的爱你，你会不会让我来呵护你真心</p></dt>
+                <dt data-swiper-parallax="-50%"><p>如果我说我真的爱你，你会不会让我来呵护你真心</p></dt>
+                <dt data-swiper-parallax="-70%"><p>如果我说我真的爱你，你会不会让我来呵护你真心</p></dt>
+                <dt data-swiper-parallax="-90%"><p>如果我说我真的爱你，你会不会让我来呵护你真心</p></dt>
+            </dl>
+        </div>
+    </div>
+</div>
+<script>
+    var mySwiper = new Swiper('.swiper-container',{
+        parallax:true,
+        speed:1000,
+        onTouchEnd: function (swiper) {
+//            if(swiper.activeIndex>swiper.previousIndex){
+//                console.log('左滑');
+//            }else{
+//                console.log('右滑');
+//            }
+            var moveX = swiper.touches.currentX - swiper.touches.startX;
+            var diff = swiper.touches.diff;
+            if(diff != 0){
+                if(moveX > 0){
+                    console.log('右滑');
+                }else {
+                    console.log('左滑');
+                }
+            }
+
+
+        }
+    });
+</script>
+</body>
+</html>

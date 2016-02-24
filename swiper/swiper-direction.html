@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../stylesheets/swiper.min.css"/>
+    <script src="../javascripts/jquery-1.11.1.min.js"></script>
+    <script src="../javascripts/swiper.min.js"></script>
+    <title></title>
+    <style>
+        html,body{
+            height: 100%;
+            margin: 0 auto;
+        }
+        .swiper-container{
+            height: 60%;
+        }
+        .swiper-container .swiper-slide{
+            text-align: center;
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="swiper-container swiper1">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-color: #fff326">同向测试</div>
+        <div class="swiper-slide" style="background-color: #98ffa1">同向测试</div>
+        <div class="swiper-slide" style="background-color: #4567e7">
+            <div class="swiper-container swiper2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background-color: #fff326">同向测试</div>
+                    <div class="swiper-slide" style="background-color: #98ffa1">同向测试</div>
+                    <div class="swiper-slide" style="background-color: #4567e7"></div>
+                    <div class="swiper-slide" style="background-color: #24d6ff">同向测试</div>
+                    <div class="swiper-slide" style="background-color: #a6ff8a">同向测试</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="swiper-slide" style="background-color: #24d6ff">同向测试</div>
+        <div class="swiper-slide" style="background-color: #a6ff8a">同向测试</div>
+    </div>
+</div>
+<script>
+    var endActiveSlide;
+    var mySwiper = new Swiper(".swiper1",{
+        effect:"coverflow",
+        slidesPerView: 3,
+        coverflow:{
+            rotate: 10,
+            stretch: -80,
+            depth: 150,
+            modifier: 2,
+            slideShadows : true
+        },
+        centeredSlides:true
+    });
+    var swiper2 = new Swiper(".swiper2",{
+        onTouchStart: function (swiper) {
+            if(swiper.activeIndex < swiper.slides.length-1){
+                endActiveSlide = mySwiper.activeIndex;
+                mySwiper.destroy(false)
+            }else{
+                mySwiper = new Swiper(".swiper1",{
+                    initialSlide : endActiveSlide,
+                    effect:"coverflow",
+                    slidesPerView: 3,
+                    coverflow:{
+                        rotate: 10,
+                        stretch: -80,
+                        depth: 150,
+                        modifier: 2,
+                        slideShadows : true
+                    },
+                    centeredSlides:true
+                });
+            }
+        }
+
+    });
+</script>
+</body>
+</html>

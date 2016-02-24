@@ -1,0 +1,52 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.alert-box{
+    width: 500px;
+    height: 500px;
+    border: 1px solid darkorange;
+    box-shadow: 0 0 15px #020202;
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    margin-left: -250px;
+    text-align: center;
+    line-height: 500px;
+}
+#a{
+    width: 80px;
+    /*height: 40px;*/
+    border: 1px solid darkmagenta;
+    background: #d43f3a;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+}
+.btn-sub{
+    width: 100px;
+    height: 35px;
+    border: 1px solid darkorange;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -50px;
+}
+.box{
+    height: 500px;
+    width: 800px;
+    background: #d0e9c6;
+    border: 2px dashed deeppink;
+    margin: 0 auto;
+    text-align: center;
+}
+.btn-box{
+    text-align: center;
+}
+.btn-box button{
+    padding: 5px 8px;
+}
+.add-box{
+
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <script type="text/javascript" src="javascripts/jquery-1.7.min.js"></script>
+    <script type="text/javascript" src="javascripts/hammer.min.js"></script>
+    <style>
+        .wt{
+            -webkit-perspective:250px;
+            height: 400px;
+            width: 300px;
+            background: darkgray;
+            margin: auto;
+            position: relative;
+        }
+        .rq{
+            -webkit-transform-style:preserve-3d;
+            width: 300px;
+            height: 400px;
+            /*background: darkcyan;*/
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -200px;
+            margin-left: -150px;
+            -webkit-transform:rotateY(0deg);
+            /*-webkit-transition:all .5s;*/
+        }
+        .rq div{
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -50px;
+            text-align: center;
+            color: #ffffff;
+            font-size: 30px;
+            line-height: 100px;
+            -webkit-transition:all 4s;
+            /*opacity: .5;*/
+        }
+        .rq div:nth-child(1){
+            background: darkcyan;
+            -webkit-transform: rotateX(0deg) translateZ(60px);
+        }
+        .rq div:nth-child(2){
+            background: darkmagenta;
+            -webkit-transform: rotateX(180deg) translateZ(60px) ;
+
+        }
+        .rq div:nth-child(3){
+            background: red;
+            -webkit-transform: rotateY(-90deg) translateZ(60px);
+        }
+        .rq div:nth-child(4){
+            background: sandybrown;
+            -webkit-transform: rotateY(90deg) translateZ(60px);
+        }
+        .rq div:nth-child(5){
+            background: darkblue;
+            -webkit-transform: rotateX(-90deg) translateZ(60px);
+        }
+        .rq div:nth-child(6){
+            background: dimgrey;
+            -webkit-transform: rotateX(90deg) translateZ(60px);
+        }
+    </style>
+</head>
+<body>
+    <div class="wt">
+        <div class="rq" id="rq">
+            <div id="11">1</div>
+            <div id="11">2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </div>
+
+<!--<script>-->
+<!--//        var r = 50 / Math.tan(45 / 180 * Math.PI)-->
+<!--//        console.log(r);-->
+
+        <!--var myElement = document.getElementById('rq');//找到需要绑定hammer的元素-->
+        <!--var mc = new Hammer(myElement);-->
+        <!--var x= 0;-->
+
+<!--//        mc.get("swipe").set({direction:Hammer.DIRECTION_ALL});-->
+        <!--mc.get("pan").set({direction:Hammer.DIRECTION_ALL});-->
+        <!--mc.on("panleft",function(e){-->
+            <!--x-=1;-->
+            <!--console.log(e.deltaX);-->
+            <!--$(".rq").css("-webkit-transform","rotateY("+x+"deg)")-->
+        <!--})-->
+        <!--mc.on("panright",function(){-->
+            <!--x+=1;-->
+            <!--$(".rq").css("-webkit-transform","rotateY("+x+"deg)");-->
+        <!--})-->
+        <!--mc.on("panup",function(){-->
+            <!--x+=1;-->
+            <!--$(".rq").css("-webkit-transform","rotateX("+x+"deg)")-->
+        <!--})-->
+        <!--mc.on("pandown",function(){-->
+            <!--x-=1;-->
+            <!--$(".rq").css("-webkit-transform","rotateX("+x+"deg)");-->
+        <!--})-->
+    <!---->
+<!--</script>-->
+
+    <script>
+        var myElement = document.getElementById('rq');//找到需要绑定hammer的元素
+        var mc = new Hammer(myElement);
+
+//        var mc = new Hammer.Manager(myElement);//创建一个控制容器并且将其绑定在目标元素上
+
+//
+//        //    创建需要的事件对象
+//        var press = new Hammer.Press();
+//        var pan = new Hammer.Pan({direction:Hammer.DIRECTION_HORIZONTAL});
+//        var swipe = new Hammer.Swipe({direction:Hammer.DIRECTION_HORIZONTAL});
+//
+//        // we want to detect both the same time
+//        pan.recognizeWith(swipe,press);
+//
+//        // add to the Manager
+//        mc.add([swipe,pan,press]);
+//
+//        mc.on("swipe pan press", function(ev) {
+//            console.log(ev.type);
+//        });
+
+        var press = new Hammer.Press();
+        var pan = new Hammer.Pan({direction:Hammer.DIRECTION_HORIZONTAL});
+        var swipe = new Hammer.Swipe({direction:Hammer.DIRECTION_HORIZONTAL});
+        var x=0;
+        pan.recognizeWith(swipe,press);
+
+        mc.on("panleft",function(e){
+            x-=2;
+                $(".rq").css("-webkit-transform","rotateY("+x+"deg)");
+        });
+
+        mc.on("panright",function(e){
+            x+=2;
+                $(".rq").css("-webkit-transform","rotateY("+x+"deg)");
+        });
+
+        mc.on("pancancel",function(){
+                alert("取消了")
+        });
+
+        mc.on("press",function(e){
+            setInterval(function () {
+                $(".rq>div").first().css({background:"red"})
+            },1000)
+        })
+    </script>
+
+</body>
+</html>

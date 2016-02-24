@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../stylesheets/swiper.3.1.2.min.css"/>
+    <script src="../javascripts/swiper.min.js"></script>
+    <title></title>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img data-src="../images/0.jpg" class="swiper-lazy">
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+            <img data-src="../images/15.jpg" class="swiper-lazy">
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+            <img data-src="../images/7.jpg" class="swiper-lazy">
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+    </div>
+</div>
+<script>
+    var mySwiper = new Swiper('.swiper-container',{
+        lazyLoading : true
+    })
+</script>
+</body>
+</html>

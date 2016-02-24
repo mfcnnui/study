@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../javascripts/jquery-1.7.min.js"></script>
+    <script src="js/jquery.dotdotdot.js"></script>
+    <title></title>
+    <style>
+    #wrapper{
+        width: 100px;
+    }
+        p{
+            word-wrap: break-word;
+            width: 100px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <p>Lorem Ipsum is simply dummy text.Lorem Ipsum is simply dummy text.Lorem Ipsum is simply dummy text.Lorem Ipsum is simply dummy text.</p>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $("#wrapper").dotdotdot({
+            //	configuration goes here
+
+        });
+    });
+</script>
+</body>
+</html>

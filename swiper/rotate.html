@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html,body{
+            margin: 0 auto;
+            height: 100%;
+        }
+        .container{
+            height: 800px;
+            width: 800px;
+            margin: 50px auto;
+        }
+        .box{
+            height: 100%;
+            width: 100%;
+            border: 1px solid #dd1144;
+            position: relative;
+        }
+        .box .child-box{
+            height: 200px;
+            width: 100px;
+            position: absolute;
+            top: 50%;
+            left:50%;
+            margin-left: -50px;
+            margin-top: -100px;
+            -webkit-transform-origin:100% 100%;
+            /*-moz-transform-origin: 50% bottom;*/
+            /*-ms-transform-origin: 50% bottom;*/
+            /*-o-transform-origin: 50% bottom;*/
+            /*transform-origin: 50% bottom;*/
+        }
+        .box .child-box:nth-child(1){
+            -webkit-transform: rotate(-60deg);
+            -moz-transform: rotate(-60deg);
+            -ms-transform: rotate(-60deg);
+            -o-transform: rotate(-60deg);
+            transform: rotate(-60deg);
+
+        }
+        .box .child-box:nth-child(2){
+            -webkit-transform: rotate(-120deg);
+            -moz-transform: rotate(-120deg);
+            -ms-transform: rotate(-120deg);
+            -o-transform: rotate(-120deg);
+            transform: rotate(-120deg);
+        }
+        .box .child-box:nth-child(3){
+            -webkit-transform: rotate(-180deg);
+            -moz-transform: rotate(-180deg);
+            -ms-transform: rotate(-180deg);
+            -o-transform: rotate(-180deg);
+            transform: rotate(-180deg);
+        }
+        .box .child-box:nth-child(4){
+            -webkit-transform: rotate(-240deg);
+            -moz-transform: rotate(-240deg);
+            -ms-transform: rotate(-240deg);
+            -o-transform: rotate(-240deg);
+            transform: rotate(-240deg);
+        }
+        .box .child-box:nth-child(5){
+            -webkit-transform: rotate(-300deg)
+            -moz-transform: rotate(-300deg);
+            -ms-transform: rotate(-300deg);
+            -o-transform: rotate(-300deg);
+            transform: rotate(-300deg);
+        }
+        .box .child-box:nth-child(6){
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="child-box" style="background-color: #88a1ff"></div>
+            <div class="child-box" style="background-color: #fff326"></div>
+            <div class="child-box" style="background-color: #ff3dba"></div>
+            <div class="child-box" style="background-color: #3a5aff"></div>
+            <div class="child-box" style="background-color: #ff20cb"></div>
+            <div class="child-box" style="background-color: #020202"></div>
+        </div>
+    </div>
+</body>
+</html>

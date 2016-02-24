@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<script type="text/javascript" src="javascripts/hammer.min.js"></script>
+
+    <style>
+        *{padding:0;margin:0;}
+        li{list-style:none;}
+        #wrapper {
+            display:block;
+            border: 1px solid #888;
+            width:500px;
+            height:300px;
+            overflow:hidden;
+            background-color: white;
+        }
+        #scroller li{
+            border:1px solid #ddd;
+            position:relative;
+            left:0px;
+            top:0px;
+            width:100%;
+            height:80px;
+        }
+        .absolute-move{
+            position:absolute;
+            width:100%;
+            top:0px;
+            bottom:0px;
+            text-align:center;
+            z-index:2;
+            background:rgba(0,255,0,0.8);
+        }
+        .absolute-hide{
+            border:1px solid #ddd;
+            text-align:center;
+            position:absolute;
+            width:25%;
+            top:0px;
+            bottom:0px;
+            right:0px;
+            z-index:1;
+        }
+    </style>
+</head>
+
+<body>
+<div id="wrapper">
+    <ul id="scroller">
+        <li>
+            <div class="absolute-move">移动的div,下面有隐藏的div</div><div class="absolute-hide">隐藏的div</div>
+        </li>
+        <li>
+            <div class="absolute-move">移动的div,下面有隐藏的div</div><div class="absolute-hide">隐藏的div</div>
+        </li>
+        <li>
+            <div class="absolute-move">移动的div,下面有隐藏的div</div><div class="absolute-hide">隐藏的div</div>
+        </li>
+        <li>
+            <div class="absolute-move">移动的div,下面有隐藏的div</div><div class="absolute-hide">隐藏的div</div>
+        </li>
+        <li>
+            <div class="absolute-move">移动的div,下面有隐藏的div</div><div class="absolute-hide">隐藏的div</div>
+        </li>
+        <li>
+            <div class="absolute-move">移动的div,下面有隐藏的div</div><div class="absolute-hide">隐藏的div</div>
+        </li>
+        <li>
+            <div class="absolute-move">移动的div,下面有隐藏的div</div><div class="absolute-hide">隐藏的div</div>
+        </li>
+        <li>
+            <div class="absolute-move">移动的div,下面有隐藏的div</div><div class="absolute-hide">隐藏的div</div>
+        </li>
+        <li>
+            <div class="absolute-move">移动的div,下面有隐藏的div</div><div class="absolute-hide">隐藏的div</div>
+        </li>
+        <li>
+            <div class="absolute-move">移动的div,下面有隐藏的div</div><div class="absolute-hide">隐藏的div</div>
+        </li>
+        <li>
+            <div class="absolute-move">移动的div,下面有隐藏的div</div><div class="absolute-hide">隐藏的div</div>
+        </li>
+        <li>
+            <div class="absolute-move">移动的div,下面有隐藏的div</div><div class="absolute-hide">隐藏的div</div>
+        </li>
+        <li>
+            <div class="absolute-move">移动的div,下面有隐藏的div</div><div class="absolute-hide">隐藏的div</div>
+        </li>
+    </ul>
+</div>
+<script src="../js/lib/hammer.js"></script>
+<script src="../js/lib/move.js"></script>
+<script src="../js/lib/iscroll/iscroll-probe.js"></script>
+<script>
+    var myScroll = new IScroll('#wrapper', { probeType: 3, mouseWheel: true });
+    var lis=document.querySelectorAll('#scroller li');
+    Array.prototype.forEach.apply(lis,[function(ele){
+        var move_part=ele.querySelector('.absolute-move');
+        var hide_part=ele.querySelector('.absolute-hide');
+        var hide_part_clientWidth=hide_part.clientWidth;
+        console.log('hide_part_clientWidth =',hide_part_clientWidth);
+        var hammer=Hammer(ele,{
+            prevent_default: true,
+            no_mouseevents: true
+        });
+        hammer.on('drag',function(evt){
+            //console.log(evt.type,evt.gesture.timeStamp,evt.gesture.interimDirection,evt.gesture.center);
+            if(!hammer.gesture){
+                hammer.gesture=evt.gesture;
+                return;
+            }
+            var pageX=evt.gesture.center.pageX;
+            var pre_pageX=hammer.gesture.center.pageX;
+
+            if(Math.abs(pageX-pre_pageX)>5){
+                var aim_left=move_part.offsetLeft+(pageX-pre_pageX);
+                if(aim_left>0){
+                    move_part.style.left='0px';
+                }else if(aim_left< -1* hide_part_clientWidth){
+                    move_part.style.left=(-1* hide_part_clientWidth)+'px';
+                }else{
+                    move_part.style.left=aim_left+'px';
+                }
+                hammer.gesture=evt.gesture;
+            }
+
+        });
+        hammer.on('dragstart',function(evt){
+            console.log(evt.type,evt.gesture.timeStamp,evt.gesture.interimDirection,evt.gesture.center);
+            hammer.gesture=evt.gesture;
+        });
+        hammer.on('dragend',function(evt){
+
+            var move_part_offsetLeft=move_part.offsetLeft;
+
+            if(move_part_offsetLeft==0 || move_part_offsetLeft ==hide_part_clientWidth*(-1)){
+                return;
+            }
+
+            hammer.enable(false);
+            var end_left=0;
+
+            if( move_part_offsetLeft< (0.5*hide_part_clientWidth)*-1){
+                end_left=hide_part_clientWidth*(-1);
+            }
+            window.setTimeout(function(){
+                move(move_part).set('left',end_left+'px').duration(500).end(function(){
+                    hammer.enable(true);
+                });
+            },50);
+
+        });
+    }]);
+</script>
+</body>
+</html>

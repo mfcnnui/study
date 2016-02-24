@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            display: -webkit-flex;
+            justify-content: center;
+        }
+        .outer{
+            display: -webkit-flex;
+            /*height: 300px;*/
+            width: 1000px;
+            /*flex-direction: row-reverse;/!*反向*!/*/
+            /*flex-direction: column;*/
+            border: 1px dashed #d58512;
+            /*flex-wrap: wrap;*/
+            /*flex-flow: wrap;*/
+            justify-content: space-around;
+        }
+        .outer div{
+            font-size: 30px;
+            display: -webkit-flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .o1{
+            background: #46b8da;
+            /*flex: 1;*/
+            width: 100px;
+        }
+        .o2{
+            background: #da4a94;
+            /*flex: 2;*/
+            width: 100px;
+        }
+        .o3{
+            background: #5bda56;
+            /*flex: 3;*/
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class=" o1">flex2</div>
+        <div class=" o2">flex1</div>
+        <div class=" o3">flex3</div>
+        <div class=" o3">flex3</div>
+        <div class=" o3">flex3</div>
+        <div class=" o3">flex3</div>
+    </div>
+</body>
+</html>

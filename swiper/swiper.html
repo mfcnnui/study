@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../stylesheets/swiper.3.1.2.min.css"/>
+    <script src="../javascripts/jquery-1.7.min.js"></script>
+    <script src="../javascripts/swiper.min.js"></script>
+    <title>progress研究--</title>
+    <style>
+        html,body{
+            margin: 0 auto;
+            margin-top: 50px;
+            padding: 0;
+            height: 100%;
+            font-size: 10px;
+            width: 100%;
+        }
+        .swiper-container{
+            height: 200px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid darkorange;
+        }
+        .swiper-container .swiper-wrapper{
+            width: 100%;
+        }
+        .swiper-container .swiper-slide{
+            height: 200px;
+            text-align: center;
+            position: relative;
+        }
+        .day-box{
+            border-radius: 50%;
+            border: 1px solid red;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -50px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" title="asdfasdfasdf"><div class="day-box" style="background-color: #bc07b7">5月255日</div></div>
+        <div class="swiper-slide" ><div class="day-box" style="background-color: #578b85">5月25日</div></div>
+        <div class="swiper-slide" ><div class="day-box" style="background-color: #b7ff2b">5月25日</div></div>
+        <div class="swiper-slide" ><div class="day-box" style="background-color: #bc07b7">5月25日</div></div>
+        <div class="swiper-slide" ><div class="day-box" style="background-color: #578b85">5月25日</div></div>
+        <div class="swiper-slide" ><div class="day-box" style="background-color: #b7ff2b">5月25日</div></div>
+    </div>
+</div>
+<script>
+    var mySwiper = new Swiper('.swiper-container',{
+        direction:"vertical",
+        centeredSlides:true,
+        effect:'coverflow',
+        coverflow: {
+            rotate: 0,
+            stretch: -50,
+            depth: 550 ,
+            modifier: 1,
+            slideShadows : false
+        },
+        mousewheelCountrol:true,
+        slidesPerView:2,
+        onInit: function (swiper) {
+            var centerSlider = parseInt(swiper.slides.length/2);
+            swiper.slideTo(centerSlider,0,false);//初始化时居中
+        },
+        onSlideChangeEnd: function (swiper) {
+            var moveY = swiper.touches.currentX - swiper.touches.startX;
+            if(moveY > 0 ){
+                swiper.prependSlide('<div class="swiper-slide" ><div class="day-box" style="background-color: #bc07b7">5月25日</div></div>')
+                swiper.removeSlide(swiper.slides.length-1);
+            }else{
+                swiper.appendSlide('<div class="swiper-slide" ><div class="day-box" style="background-color: #bc07b7">5月25日</div></div>')
+                swiper.removeSlide(0);
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

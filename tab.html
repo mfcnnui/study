@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="stylesheets/swiper.3.1.2.min.css"/>
+    <script src="javascripts/swiper.min.js"></script>
+    <title></title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .swiper-container{
+            height: 100%;
+        }
+        .swiper-container .swiper-slide{
+            height: auto;
+        }
+
+        .my-pagination .swiper-pagination-bullet{
+            width:33.3333333%;
+            border:1px solid #fff;
+            box-sizing: border-box;
+            background:#eee;
+            height:25px;
+            text-align:center;
+            border-radius:0;
+            opacity: .5;
+        }
+        .my-pagination .swiper-pagination-bullet-active{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="my-pagination"></div>
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background: red;">Slide 1</div>
+        <div class="swiper-slide" style="background: green;">Slide 2</div>
+        <div class="swiper-slide" style="background: yellow;">Slide 3</div>
+    </div>
+    <!--&lt;!&ndash; 如果需要滚动条 &ndash;&gt;-->
+    <!--<div class="swiper-scrollbar"></div>-->
+
+</div>
+
+<script>
+
+    var mySwiper = new Swiper('.swiper-container',{
+        pagination: '.my-pagination',
+        paginationClickable: true,
+        paginationBulletRender: function (index, className) {
+            switch (index) {
+                case 0: name='Swiper应用';break;
+                case 1: name='Swiper教程';break;
+                case 2: name='Swiper介绍';break;
+                default: name='';
+            }
+            return '<div class="' + className + '">' + name + '</div>';
+        }
+    })
+
+</script>
+</body>
+</html>

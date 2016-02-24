@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../javascripts/jquery-1.11.1.min.js"></script>
+    <style>
+        .box{
+            height: 200px;
+            width: 200px;
+            background: #d43f3a;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        $(".box").click(function () {
+            var $this = $(this);
+//            $(this).animate({opacity:.5},500).css({flter:"Alpha(Opacity=50)"});
+
+            $this.animate({
+//                filter:"alpha(opacity = 10)",
+                opacity:.1
+            },500)
+        });
+
+    </script>
+</body>
+</html>

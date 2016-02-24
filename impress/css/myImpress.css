@@ -1,0 +1,16 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.step{
+    opacity: .3;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -ms-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+}
+.active{
+    opacity: 1;
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>Pan</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="javascripts/jquery-1.7.min.js"></script>
+    <script src="javascripts/hammer.min.js"></script>
+    <style type="text/css">
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .test {
+            width: 100%;
+            height: 50%;
+            background: #ffd800;
+            text-align: left;
+        }
+
+        .re {
+            width: 200px;
+            height: 200px;;
+            background: #b6ff00;
+            text-align: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor:move;
+        }
+    </style>
+</head>
+<body contenteditable="false">
+<div id="test" class="test" contenteditable="false">事件区域</div>
+<div id="result" class="result" contenteditable="false">事件结果<br /></div>
+
+    <div class="re" id="re" contenteditable="false"></div>
+
+<!--Pan事件(左拖动和右拖动)的绑定-->
+    <script type="text/javascript">
+        //创建一个新的hammer对象并且在初始化时指定要处理的dom元素
+        var mc = new Hammer(document.getElementById("re")).set({direction:Hammer.DIRECTION_ALL});
+        //添加事件
+        var x= 0;
+        var y= 0;
+        mc.on("panleft", function (e) {
+            x-=2;
+            console.log("x"+e.deltaX+"----y:"+ e.deltaY);
+            $(".re").css("left",x);
+        })
+        mc.on("panright", function (e) {
+            x+=2;
+            console.log("x"+e.deltaX+"----Y:"+ e.deltaY);
+            $(".re").css("left",x);
+        })
+        mc.on("panup", function (e) {
+            y-=2;
+            console.log("x"+e.deltaX+"----Y:"+ e.deltaY);
+            $(".re").css("top",y);
+        })
+        mc.on("pandown", function (e) {
+            y+=2;
+            console.log("x"+e.deltaX+"----Y:"+ e.deltaY);
+            $(".re").css("top",y);
+        })
+    </script>
+<!--pan事件的绑定-->
+
+<!--Pinch(捏合触发)-->
+    <!--<script type="text/javascript">-->
+        <!--//创建一个新的hammer对象并且在初始化时指定要处理的dom元素-->
+        <!--var hammertime = new Hammer(document.getElementById("test"));-->
+        <!--//为该dom元素指定触屏移动事件-->
+        <!--hammertime.add(new Hammer.Pinch());-->
+        <!--//添加事件-->
+        <!--hammertime.on("pinchin", function (e) {-->
+            <!--document.getElementById("result").innerHTML += "捏合初触发<br />";-->
+            <!--//控制台输出-->
+            <!--console.log(e);-->
+        <!--});-->
+    <!--</script>-->
+<!--Pinch(捏合触发)-->
+
+<!--Press(长按)事件-->
+    <!--<script type="text/javascript">-->
+        <!--//创建一个新的hammer对象并且在初始化时指定要处理的dom元素-->
+        <!--var hammertime = new Hammer(document.getElementById("test"));-->
+        <!--//添加事件-->
+        <!--hammertime.on("press", function (e) {-->
+            <!--document.getElementById("result").innerHTML += "超过500ms了<br />";-->
+            <!--//控制台输出-->
+            <!--console.log(e);-->
+        <!--});-->
+    <!--</script>-->
+<!--Press(长按)事件-->
+
+
+<!--Rotate旋转事件(两根或者多根手指旋转触发)-->
+    <!--<script type="text/javascript">-->
+        <!--//创建一个新的hammer对象并且在初始化时指定要处理的dom元素-->
+        <!--var hammertime = new Hammer(document.getElementById("test"));-->
+        <!--//为该dom元素指定触屏移动事件-->
+        <!--hammertime.add(new Hammer.Rotate());-->
+        <!--//添加事件-->
+        <!--hammertime.on("rotate", function (e) {-->
+            <!--document.getElementById("result").innerHTML += "X偏移量：【" + e.deltaX + "】，Y偏移量：【" + e.deltaY + "】<br />";-->
+            <!--//控制台输出-->
+            <!--console.log(e);-->
+        <!--});-->
+    <!--</script>-->
+<!--Rotate旋转事件(两根或者多根手指旋转触发)-->
+
+<!--滑动事件(请区别于Pan事件)-->
+        <script type="text/javascript">
+
+            //创建一个新的hammer对象并且在初始化时指定要处理的dom元素
+            var hammertime = new Hammer(document.getElementById("test"));
+            hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+            hammertime.get('swipe').set({ direction: Hammer.DIRECTION_ALL})
+            //添加事件
+            hammertime.on("swipe", function (e) {
+                document.getElementById("result").innerHTML += "X偏移量：【" + e.deltaX + "】，Y偏移量：【" + e.deltaY + "】<br />";
+                //控制台输出
+                console.log(e);
+            });
+        </script>
+<!--滑动事件(请区别于Pan事件)-->
+
+
+<!--<script>-->
+    <!--var myElement = document.getElementById('test');//找到需要绑定hammer的元素-->
+
+    <!--var mc = new Hammer.Manager(myElement);//创建一个控制容器并且将其绑定在目标元素上-->
+
+
+<!--//    创建需要的事件对象-->
+    <!--var pinch = new Hammer.Pinch();-->
+    <!--var rotate = new Hammer.Rotate();-->
+<!--//    var pan = new Hammer.Pan({direction:Hammer.DIRECTION_HORIZONTAL});-->
+    <!--var swipe = new Hammer.Swipe({direction:30});-->
+
+    <!--// we want to detect both the same time-->
+    <!--pinch.recognizeWith(rotate,swipe);-->
+
+    <!--// add to the Manager-->
+    <!--mc.add([pinch, rotate,swipe]);-->
+
+
+    <!--mc.on("pinch rotate swipe", function(ev) {-->
+        <!--document.getElementById("result").textContent += ev.type +" ";-->
+    <!--});-->
+<!--</script>-->
+</body>
+</html>
